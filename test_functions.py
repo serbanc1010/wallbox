@@ -47,7 +47,7 @@ def test_find_file(tmp_path, setup_teardown_for_test_find_file, capsys):
     f1 = folder / "regular.txt"
     f2 = folder / "executable.sh"
     f1.write_text("Lorem Ipsum")
-    f2.write_text("#/bin/bash\n echo \"Hello world!\"\n")
+    f2.write_text("#/bin/bash\necho \"Hello world!\"\n")
     os.system("chmod +x "+str(f2))
     os.system("sudo chown admin "+str(f2))
     assert find_file(str(folder)) == str(f2)
